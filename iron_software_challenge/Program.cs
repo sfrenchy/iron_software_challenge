@@ -12,10 +12,11 @@ namespace IronSoftwareChalenge
             Console.WriteLine(OldPhonePad("3322#")); // EB
             Console.WriteLine(OldPhonePad("227*#")); // B
             Console.WriteLine(OldPhonePad("8 88777444666*664#")); // TURING
+            Console.WriteLine(OldPhonePad("4433555 555666096667775553#"));
         }
 
         /// <summary>
-        /// Simulates text input on an old phone.
+        /// Simulates text input on an old phone).
         /// Each number corresponds to multiple letters, and repeated presses
         /// cycle through the available letters.
         /// </summary>
@@ -23,9 +24,9 @@ namespace IronSoftwareChalenge
         /// <returns>The text corresponding to the pressed keys</returns>
         public static String OldPhonePad(string input) 
         {
-            string authorizedChars = "&'(ABCDEFGHIJKLMNOPQRSTUVWXYZ +";
-            if (input.Any(c => authorizedChars.IndexOf(c) == 1))
-                throw new Exception("This method support only these character: {authorizedChars}");
+            string authorizedChars = "1234567890*# ";
+            if (input.Any(c => authorizedChars.IndexOf(c) == -1))
+                throw new Exception($"This method support only these character: {authorizedChars}");
             if (input[input.Length - 1] != '#')
                 throw new Exception("input must finish by # character");
 
